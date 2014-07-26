@@ -1,0 +1,17 @@
+include ninjas/tools/assembler.ninja
+include ninjas/tools/scripts.ninja
+
+shared_object = -shared
+#cc = gcc-4.9
+#include ninjas/tools/gcc.ninja
+
+cc = /usr/local/llvm/bin/clang
+include ninjas/tools/clang.ninja
+
+#include ninjas/tools/compcert.ninja
+
+clocal = -Isrc -I.
+cflags = $cflags $clocal
+#cflags_optim = $cflags
+cflags_optim = $cflags_optim $clocal
+so = dylib

@@ -1,0 +1,4 @@
+#ifndef KTUTILS_MEMCLEAR_H
+#define KTUTILS_MEMCLEAR_H
+
+#endif  // KTUTILS_MEMCLEAR_H
