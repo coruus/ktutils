@@ -21,6 +21,8 @@ extern int kt_selectb(uint8_t* out, uint8_t in, uint8_t q[][2], uint8_t qlen, ui
 extern int randombytes(uint8_t* out, size_t len);
 extern int urandombytes(uint8_t* out, size_t len);
 
+#include "ktutils-verify.h"
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/mman.h>

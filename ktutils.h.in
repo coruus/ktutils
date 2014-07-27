@@ -1,0 +1,5 @@
+/*% for i in [8, 16, 24, 32, 40, 48, 56, 64, 128] */
+extern uint64_t kt_verify`i`_64(const void* _s1, const void* _s2);
+#define kt_verify`i`(s1, s2) \
+  kt_err_64toi(kt_verify((s1), (s2)))
+/*% endfor */

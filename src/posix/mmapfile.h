@@ -16,9 +16,10 @@ typedef struct mmapped_file {
   size_t length;
   int fd;
   int prot;
+  int oflags;
 } mmfile;
 
-int mmfile_open(mmfile* mf, const char* filename, const int mode);
+int mmfile_open(mmfile* mf, const char* filename, const int oflag);
 int mmfile_create(mmfile* mf, const char* filename, const size_t length);
 int mmfile_close(mmfile* mf);
 /*END EXPORT*/

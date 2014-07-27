@@ -1,0 +1,13 @@
+
+/*% for i in [8, 16, 24, 32, 40, 48, 56, 64, 128] */
+uint64_t kt_verify`i`_64(const void* _s1, const void* _s2);
+uint64_t kt_verify`i`_64(const void* _s1, const void* _s2) {
+  uint64_t* s1 = (uint64_t*)_s1;
+  uint64_t* s2 = (uint64_t*)_s2;
+  uint64_t acc = 0;
+/*% for j in range(i//8) */
+  acc |= s1[`j`] ^ s2[`j`];
+/*% endfor */
+  return acc;
+}
+/*% endfor */

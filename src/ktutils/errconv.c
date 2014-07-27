@@ -17,6 +17,11 @@ int kt_err_ztoi(size_t zerr) {
   return (int)(zerr != 0) - 1;
 }
 
+int kt_err_64toi(uint64_t u64err);
+int kt_err_64toi(uint64_t u64err) {
+  return (int)(u64err != 0) - 1;
+}
+
 size_t kt_err_itoz(int err);
 size_t kt_err_itoz(int err) {
   return (size_t)(err != 0) - (size_t)1;
