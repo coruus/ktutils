@@ -47,7 +47,7 @@
 int mmfile_open(mmfile* mf, const char* filename, const int oflag) {
   int err = 0;
   char serr[1024] = {0};
-  if ((mode & O_CREAT) | (mode & O_TRUNC)) {
+  if ((oflag & O_CREAT) | (oflag & O_TRUNC)) {
     E(ret, "oflag has O_CREAT or O_TRUNC set");
   }
   int oflags = oflag | OFLAGS_COMMON;
@@ -75,7 +75,7 @@ int mmfile_open(mmfile* mf, const char* filename, const int oflag) {
   size_t length = (size_t)stat.st_size;
 
   int prot = PROT_READ;
-  if (mode & O_RDRW) { prot = PROT_WRITE; }
+  if (oflag & O_RDWR) { prot = PROT_WRITE; }
 
   // We only attempt to mmap the memory region if the length is non-zero.
   //                     mmap(addr, len,    prot, flags,      fd, offset)
@@ -101,7 +101,7 @@ int mmfile_open(mmfile* mf, const char* filename, const int oflag) {
   mf->length = length;
   mf->mem = in;
   mf->prot = prot;
-  mf-oflags = oflags;
+  mf->oflags = oflags;
   return err;
 
 close:

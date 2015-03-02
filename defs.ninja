@@ -5,7 +5,7 @@ shared_object = -shared
 #cc = gcc-4.9
 #include ninjas/tools/gcc.ninja
 
-cc = /usr/local/bin/clang-3.5
+cc = clang
 include ninjas/tools/clang.ninja
 
 #include ninjas/tools/compcert.ninja
